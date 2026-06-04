@@ -66,8 +66,8 @@ module alu_tb;
 
 
     initial begin
-        $dumpfile("build/alu_simulation.vcd");
-        $dumpvars(0, alu_tb);
+        // L'enregistrement VCD est maintenant géré globalement par master_tb.sv
+        // $dumpfile et $dumpvars ont été retirés ici.
 
         formatted_msg = $sformatf("-- ALU Test Bench --");
         $display("%s%s%s", `CLR_BLUE, formatted_msg, `CLR_RESET);
@@ -159,6 +159,7 @@ module alu_tb;
         if (errors == 0) $display("%s%s%s", `CLR_GREEN, formatted_msg, `CLR_RESET);
         else             $display("%s%s%s", `CLR_RED, formatted_msg, `CLR_RESET);
         
-        $finish;
+        // Signale au master_tb que l'ALU a terminé pour lancer la suite
+        -> master_tb.alu_is_done;
     end
 endmodule
