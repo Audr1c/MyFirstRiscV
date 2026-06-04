@@ -27,7 +27,7 @@ BUILD_DIR = build
 
 FLAGS = -g2012 -Wall -I$(SRC_DIR) -y $(LIB_DIR) # -g2012 pour utiliser sv au lieu de v
 
-SOURCES = $(wildcard $(SRC_DIR)/*.sv) $(wildcard $(LIB_DIR)/*.sv)
+SOURCES = $(wildcard $(LIB_DIR)/*.sv) $(wildcard $(SRC_DIR)/*.sv) 
 TESTBENCHES = $(wildcard $(TB_DIR)/*.sv)
 TARGET = $(BUILD_DIR)/sim_out
 VCD_FILE = $(BUILD_DIR)/simulation.vcd
@@ -52,7 +52,7 @@ setup:
 	@mkdir -p $(BUILD_DIR)
 
 compile: setup
-	$(IVERILOG) $(FLAGS) -o $(TARGET) $(TESTBENCHES) $(SOURCES)
+	$(IVERILOG) $(FLAGS) -o $(TARGET) $(SOURCES)  $(TESTBENCHES)
 
 test: compile
 	@echo "Simulation en cours..."
