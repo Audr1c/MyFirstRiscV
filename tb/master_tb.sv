@@ -3,7 +3,9 @@
 module master_tb;
 
     // Événement global pour synchroniser la séquence des tests
+    event mater_is_done;
     event alu_is_done;
+    event regfile_is_done;
 
     // Instanciation de tes deux bancs de test en tant que sous-modules
     alu_tb     u_alu_tb();
@@ -12,5 +14,9 @@ module master_tb;
     initial begin
         $dumpfile("build/simulation.vcd");
         $dumpvars(0, master_tb); // Enregistre tous les signaux de toute la hiérarchie
+        -> mater_is_done;
+        @(alu_is_done);
+        @(regfile_is_done);
+        $finish;
     end
 endmodule

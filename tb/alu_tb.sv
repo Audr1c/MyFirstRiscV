@@ -6,12 +6,12 @@
 
 
 `timescale 1ns / 1ps
-string formatted_msg;
 
 import alu_pkg::*;
 
 module alu_tb;
 
+    string formatted_msg;
     int errors = 0;
     int tests_run = 0;
 
@@ -68,6 +68,7 @@ module alu_tb;
     initial begin
         // L'enregistrement VCD est maintenant géré globalement par master_tb.sv
         // $dumpfile et $dumpvars ont été retirés ici.
+        @(master_tb.mater_is_done);
 
         formatted_msg = $sformatf("-- ALU Test Bench --");
         $display("%s%s%s", `CLR_BLUE, formatted_msg, `CLR_RESET);

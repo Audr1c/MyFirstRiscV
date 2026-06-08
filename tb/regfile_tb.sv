@@ -9,12 +9,10 @@
 
 
 `timescale 1ns / 1ps
-string formatted_msg_regfile;
-
-
 
 module regfile_tb;
 
+    string formatted_msg_regfile;
     int errors = 0;
     int tests_run = 0;
 
@@ -28,9 +26,10 @@ module regfile_tb;
 
     logic RegWrite;
     logic clk = 0;
+    logic rst;
+
     always
 	#(`PERIOD/2) clk = ~clk;
-    logic rst;
 
 
 
@@ -167,6 +166,6 @@ module regfile_tb;
         if (errors == 0) $display("%s%s%s", `CLR_GREEN, formatted_msg_regfile, `CLR_RESET);
         else             $display("%s%s%s", `CLR_RED, formatted_msg_regfile, `CLR_RESET);
         
-        $finish;
+        -> master_tb.regfile_is_done;
     end
 endmodule
