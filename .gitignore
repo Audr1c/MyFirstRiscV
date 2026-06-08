@@ -1,1 +1,4 @@
 /build/*
+/programms/*
+!/programms/default.txt
+!/programms/prog_pc_rom_tb.txt

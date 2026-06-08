@@ -68,7 +68,7 @@ module alu_tb;
     initial begin
         // L'enregistrement VCD est maintenant géré globalement par master_tb.sv
         // $dumpfile et $dumpvars ont été retirés ici.
-        @(master_tb.mater_is_done);
+        @(master_tb.master_is_done);
 
         formatted_msg = $sformatf("-- ALU Test Bench --");
         $display("%s%s%s", `CLR_BLUE, formatted_msg, `CLR_RESET);
