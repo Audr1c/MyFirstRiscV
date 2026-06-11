@@ -7,6 +7,7 @@ module master_tb;
     event alu_is_done;
     event regfile_is_done;
     event pc_rom_is_done;
+    event decoder_is_done;
 
     // Instanciation de tes deux bancs de test en tant que sous-modules
     alu_tb     u_alu_tb();
@@ -19,6 +20,7 @@ module master_tb;
         @(alu_is_done);
         @(regfile_is_done);
         @(pc_rom_is_done);
+        @(decoder_is_done);
         $finish;
     end
 endmodule
