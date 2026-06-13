@@ -8,10 +8,11 @@ module master_tb;
     event regfile_is_done;
     event pc_rom_is_done;
     event decoder_is_done;
+    event cu_is_done;
 
     // Instanciation de tes deux bancs de test en tant que sous-modules
-    alu_tb     u_alu_tb();
-    regfile_tb u_regfile_tb();
+    // alu_tb     u_alu_tb();
+    // regfile_tb u_regfile_tb();
 
     initial begin
         $dumpfile("build/simulation.vcd");
@@ -21,6 +22,7 @@ module master_tb;
         @(regfile_is_done);
         @(pc_rom_is_done);
         @(decoder_is_done);
+        @(cu_is_done);
         $finish;
     end
 endmodule

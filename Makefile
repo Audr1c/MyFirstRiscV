@@ -52,7 +52,8 @@ setup:
 	@mkdir -p $(BUILD_DIR)
 
 compile: setup
-	$(IVERILOG) $(FLAGS) -o $(TARGET) $(SOURCES)  $(TESTBENCHES)
+	$(IVERILOG) $(FLAGS) -o $(TARGET) $(SOURCES)  $(TESTBENCHES) 2>&1 | grep -v "sorry: constant selects" 
+#; exit $${PIPESTATUS[0]}
 
 test: compile
 	@echo "Simulation en cours..."

@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 `define CLR_RESET  "\033[0m"
 `define CLR_RED    "\033[1;31m"
 `define CLR_GREEN  "\033[1;32m"
@@ -8,7 +9,6 @@
 
 
 
-`timescale 1ns / 1ps
 
 module regfile_tb;
 

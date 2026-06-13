@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 `define CLR_RESET  "\033[0m"
 `define CLR_RED    "\033[1;31m"
 `define CLR_GREEN  "\033[1;32m"
@@ -5,7 +6,6 @@
 `define CLR_BLUE   "\033[1;34m"
 
 
-`timescale 1ns / 1ps
 
 import alu_pkg::*;
 

@@ -9,13 +9,13 @@ module rom #(
     output logic [31:0] out
 );
 
-    logic [31:0] mem [1023:0]; // 1024 entry ROM
+    logic [31:0] mem [0:1023]; // 1024 entry ROM
 
     task reset(); begin
         string file_name;
         file_name = PROG_FILE;
         // Permet de surcharger le nom du fichier au runtime avec +PROG_FILE=...
-        $value$plusargs("PROG_FILE=%s", file_name); 
+        void'($value$plusargs("PROG_FILE=%s", file_name)); 
         //vvp build/sim_out +PROG_FILE="mon_programme_de_test.bin"
         
         $readmemh(file_name, mem); // from hex 
@@ -29,7 +29,7 @@ module rom #(
 
     always_ff @(posedge clk, posedge rst) begin
         if (rst)
-            reset();
+            out <= mem[0];
         else 
             out <= mem[pc[9:0]];
     end

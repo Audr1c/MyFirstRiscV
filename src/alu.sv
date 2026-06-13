@@ -1,6 +1,6 @@
 
-
 `timescale 1ns / 1ps
+
 import alu_pkg::*;
 module alu(
     input  logic [31:0] in1,
@@ -25,6 +25,6 @@ module alu(
             ALU_SLTU: out = in1 < in2;
         endcase
 
-        assign zero = out == 0; // ~(|out)
+        zero = out == 0; // ~(|out)
     end
 endmodule

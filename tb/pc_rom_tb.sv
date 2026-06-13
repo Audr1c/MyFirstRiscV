@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 `define CLR_RESET  "\033[0m"
 `define CLR_RED    "\033[1;31m"
 `define CLR_GREEN  "\033[1;32m"
@@ -6,7 +7,6 @@
 
 `define PERIOD 10
 
-`timescale 1ns / 1ps
 string formatted_msg_pc;
 
 module pc_tb;

@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 // definition of all ALU operation : ADD, SUB, AND, OR, XOR, SLL, SRL, SRA, SLT, SLTU
 // `define ALU_ADD  4'b0000 // Add (discard last carry)
 // `define ALU_SUB  4'b0001 // Sub by two's complement
@@ -9,7 +10,6 @@
 // `define ALU_SRA  4'b0111 // Shift right arithmetic
 // `define ALU_SLT  4'b1000 // Set less than (signed)
 // `define ALU_SLTU 4'b1001 // Set less than (unsigned)
-
 package alu_pkg;
     typedef enum logic [3:0] { 
         ALU_ADD  = 4'b0000, // Add (discard last carry)
