@@ -30,7 +30,7 @@ package op_codes_pkg;
     localparam [6:0] OP_JALR   = 7'b1100111; // Type I 
     localparam [6:0] OP_JAL    = 7'b1101111; // Type J
 
-    localparam [6:0] OP_IMM    = 7'b0010011; // Type I (ex: ADDI, ANDI...)
+    localparam [6:0] OP_IMM    = 7'b0010011; // Type I (ex: ADDI, ANDI...) Except SLLI SRLI SRAI
     localparam [6:0] OP_REG    = 7'b0110011; // Type R (ex: ADD, SUB, OR...)
 
     localparam [6:0] OP_AUIPC  = 7'b0010111; // Type U

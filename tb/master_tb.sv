@@ -9,10 +9,15 @@ module master_tb;
     event pc_rom_is_done;
     event decoder_is_done;
     event cu_is_done;
+    event top_is_done;
 
     // Instanciation de tes deux bancs de test en tant que sous-modules
-    // alu_tb     u_alu_tb();
-    // regfile_tb u_regfile_tb();
+    alu_tb     u_alu_tb();
+    regfile_tb u_regfile_tb();
+    pc_tb u_pc_rom_tb();
+    decoder_tb u_decoder_tb();
+    ControlUnit_tb u_cu_tb();
+    top_tb u_top_tb();
 
     initial begin
         $dumpfile("build/simulation.vcd");
@@ -23,6 +28,7 @@ module master_tb;
         @(pc_rom_is_done);
         @(decoder_is_done);
         @(cu_is_done);
+        @(top_is_done);
         $finish;
     end
 endmodule

@@ -109,15 +109,15 @@ module decoder_tb;
         
         // test 6
         // ADDI r5, r6, -1 (0xFFF30293) -> Ext. de signe max négatif (-1) -> imm=32'hFFFFFFFF
-        verification_decoder(32'hFFF30293, 7'h13, 5'd5, 5'd6, 5'd0, 3'h0, 7'h00, 32'hFFFFFFFF);
+        verification_decoder(32'hFFF30293, 7'h13, 5'd5, 5'd6, 5'd0, 3'h0, 7'h7f, 32'hFFFFFFFF);
         
         // test 7
         // ANDI r10, r11, 2047 (0x7FF5F513) -> Imm max positif (2047) -> imm=32'h000007FF
-        verification_decoder(32'h7FF5F513, 7'h13, 5'd10, 5'd11, 5'd0, 3'h7, 7'h00, 32'h000007FF);
+        verification_decoder(32'h7FF5F513, 7'h13, 5'd10, 5'd11, 5'd0, 3'h7, 7'h3f, 32'h000007FF);
         
         // test 8
         // SRAI r12, r13, -2048 (0x8006D613) -> Imm max négatif (-2048) -> imm=32'hFFFFF800
-        verification_decoder(32'h8006D613, 7'h13, 5'd12, 5'd13, 5'd0, 3'h5, 7'h00, 32'hFFFFF800);
+        verification_decoder(32'h8006D613, 7'h13, 5'd12, 5'd13, 5'd0, 3'h5, 7'h40, 32'hFFFFF800);
 
         // test 9
         // --- TYPE I (Loads & JALR) ---
@@ -127,7 +127,7 @@ module decoder_tb;
         
         // test 10
         // LBU r8, -4(r9) (0xFFC4C403) -> rs1=9, rd=8, imm=-4 (32'hFFFFFFFC), funct3=4, opcode=03
-        verification_decoder(32'hFFC4C403, 7'h03, 5'd8, 5'd9, 5'd0, 3'h4, 7'h00, 32'hFFFFFFFC);
+        verification_decoder(32'hFFC4C403, 7'h03, 5'd8, 5'd9, 5'd0, 3'h4, 7'h7f, 32'hFFFFFFFC);
 
         // test 11
         // JALR r1, 0(r5) (0x000280E7) -> rd=1, rs1=5, imm=0, funct3=0, opcode=67

@@ -81,6 +81,7 @@ module decoder (
                 rd     = instruction[11:7];
                 rs1    = instruction[19:15];
                 funct3 = instruction[14:12];
+                funct7 = instruction[31:25];
                 imm    = {{20{instruction[31]}}, instruction[31:20]};
             end
             TYPE_S: begin
