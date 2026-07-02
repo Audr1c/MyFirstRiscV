@@ -192,6 +192,9 @@ module ControlUnit_tb;
         // EBREAK   (opcode: 1110011, imm: 1)
         verification_ControlUnit(32'h00100073, 0, 0, 4'h0, 0, 0, 0, 0, "EBREAK");
 
+        // test dor program stage6
+        
+
         // ------------------------------------------------------------------
         // End of Simulation
         // ------------------------------------------------------------------

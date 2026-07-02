@@ -4,6 +4,7 @@ Agis comme un expert en conception numérique. Je dois coder un processeur RISC-
 Mon niveau : je connais le language, mais jamais fait de projet complet 
 Me donne pas trop d'indice et laisse moi trouver, je demanderais explicitement quand je veux une aide ou une solution 
 ```
+(geminiConv)[https://gemini.google.com/app/695e89d55cb2cd5c]
 
 Voici le plan d'action étape par étape pour concevoir ton processeur RV32I en architecture **monocycle** (une instruction par cycle d'horloge), ce qui est le choix le plus logique pour un premier projet.
 

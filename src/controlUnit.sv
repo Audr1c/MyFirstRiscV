@@ -11,16 +11,21 @@ module convertAlu_ctr(
     output  logic  [3:0]   alu_ctrl, // ALU_ADD, ALU_SUB, ALU_AND ...
     
     input   logic  [2:0] funct3, 
-    input   logic  [6:0] funct7
+    input   logic  [6:0] funct7,
+    input   logic  [6:0] opcode
 );
 
     always_comb begin
         case (funct3)
             3'b000 :  
-                case(funct7) 
-                        7'b0000000:  alu_ctrl = ALU_ADD;
-                        7'b0100000:  alu_ctrl = ALU_SUB;
-                        default   :  alu_ctrl = ALU_ERR;
+                case(opcode)
+                    OP_IMM  : alu_ctrl = ALU_ADD;
+                    default :
+                    case(funct7) 
+                            7'b0000000:  alu_ctrl = ALU_ADD;
+                            7'b0100000:  alu_ctrl = ALU_SUB;
+                            default   :  alu_ctrl = ALU_ERR;
+                    endcase
                 endcase
             3'b001 :  alu_ctrl = ALU_SLL;
             3'b010 :  alu_ctrl = ALU_SLT;
@@ -76,7 +81,8 @@ module ControlUnit (
     convertAlu_ctr conv(
         .alu_ctrl(alu_ctrl),
         .funct3(funct3), 
-        .funct7(funct7)
+        .funct7(funct7),
+        .opcode(OpCode)
     );
 
     decoder_format form (
